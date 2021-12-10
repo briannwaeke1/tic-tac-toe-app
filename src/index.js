@@ -1,21 +1,33 @@
+/* eslint-disable react/jsx-no-comment-textnodes */
+/* eslint-disable react/prop-types */
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
 
 class Square extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      value: null,
+    };
+  }
     render() {
       return (
-        <button className="square">
-          {/* TODO */}
+        <button 
+          className="square" 
+          onClick={() => this.setState({value: 'X'})}
+          >
+          {this.state.value}
         </button>
       );
     }
   }
   
   class Board extends React.Component {
+    // eslint-disable-next-line no-unused-vars
     renderSquare(i) {
-      return <Square />;
+      return <Square value={i} />;
     }
   
     render() {
